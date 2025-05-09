@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // buat perilaku ketika username tidak ditemukan
     // buat perilaku ketika password salah
     // buat perilaku ketika login berhasil
-    // buat perilaku ketika login gagal
+    // buat perilaku ketika login gagaldw
     // buat perilaku ketika login berhasil  
     if (isset($_POST[""])) {
         $username = $_POST['username'];
