@@ -7,13 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // mutia
-    
     // buat perilaku ketika salah username atau password
     // buat perilaku ketika username tidak ditemukan
     // buat perilaku ketika password salah
     // buat perilaku ketika login berhasil
     // buat perilaku ketika login gagal
-    // buat perilaku ketika login berhasil  
+    // buat perilaku ketika login berhasil  awdpadaowk
     if (isset($_POST[""])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
