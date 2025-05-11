@@ -7,29 +7,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_password = $_POST['confirm_password'];
     $email = $_POST['email'];
 
-    $checkUsernameStmt = $conn->prepare("SELECT username FROM users WHERE username = ?");
-    $checkUsernameStmt->bind_param("s", $username);
-    $checkUsernameStmt->execute();
-    $checkUsernameStmt->store_result();
+    $query = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     // buat perilaku ketika username sudah ada
-    if ($checkUsernameStmt->num_rows > 0) {
-        $checkUsernameStmt->close(); 
-        header("Location: ../register.php?error=username_exists");
-        exit();
+    if ($result->num_rows > 0) {
+        echo "Registrasi gagal: Username sudah terdaftar.";
+        exit;
     }
 
     // buat perilaku ketika password tidak sama
     if ($password !== $confirm_password) {
-        $checkUsernameStmt->close(); 
-        header("Location: ../register.php?error=password_mismatch");
-        exit();
+        echo "Registrasi gagal: Password tidak sama dengan konfirmasi password.";
+        exit;
     }
 
-    $hash_password = password_hash($password, PASSWORD_BCRYPT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $email, $hash_password);
+     $insert_query = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($insert_query);
+    $stmt->bind_param("sss", $username, $hashed_password, $email);
 
     // buat perilaku ketika register berhasil
     if ($stmt->execute()) {
