@@ -11,9 +11,15 @@
         <div class="form-container">
             <h2>Registrasi</h2>
             <?php
-            if (isset($error)) {
-                echo '<div class="error-message">' . $error . '</div>';
-            }
+                if (isset($error)) {
+                    echo '<div class="error-message">' . $error . '</div>';
+                }
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] == 'username_exists') echo "Username sudah digunakan.";
+                    else if ($_GET['error'] == 'password_mismatch') echo "Password tidak cocok.";
+                    else if ($_GET['error'] == 'register_failed') echo "Registrasi gagal.";
+                    else if ($_GET['error'] == 'invalid_request') echo "Permintaan tidak valid.";
+                }
             ?>
             <form action="includes/register_process.php" method="POST">
                 <div class="form-group">
@@ -34,7 +40,7 @@
                 </div>
                 <button type="submit" class="btn">Daftar</button>
             </form>
-            <p class="login-link">Sudah punya akun? <a href="">Login di sini</a></p>
+            <p class="login-link">Sudah punya akun? <a href="login.php">Login di sini</a></p>
         </div>
     </div>
 </body>
