@@ -17,6 +17,20 @@
             if (isset($error)) {
                 echo '<div class="error-message">' . $error . '</div>';
             }
+
+            if (isset($_GET['error'])) {
+                switch ($_GET['error']) {
+                    case 'username':
+                        echo "<p style='color:red;'>Username tidak ditemukan</p>";
+                        break;
+                    case 'password':
+                        echo "<p style='color:red;'>Username atau Password salah</p>";
+                        break;
+                    case 'invalid_request':
+                        echo "<p style='color:red;'>Permintaan tidak valid</p>";
+                        break;
+                }
+            }
             ?>
             <form action="includes/login_process.php" method="POST">
                 <div class="form-group">
