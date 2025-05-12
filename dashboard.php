@@ -67,7 +67,7 @@ $isAdmin = $_SESSION['role'] === 'admin';
         <div class="form-container dashboard-container">
             <h2>Selamat Datang</h2>
             <div class="welcome-message">
-                <p>Halo, <?= htmlspecialchars($_SESSION['username']) ?></p>
+                <p>Halo,  <b><?= htmlspecialchars($_SESSION['username']) ?> </b></p>
                 <p>Role: <?= htmlspecialchars($_SESSION['role']) ?></p>
                 <p>Anda telah berhasil login ke sistem.</p>
             </div>

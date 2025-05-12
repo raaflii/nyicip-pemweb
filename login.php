@@ -19,27 +19,29 @@
             }
 
             if (isset($_GET['error'])) {
+                echo "<div style='border: 1px solid red; background-color: #ffe6e6; color: red; padding: 10px; margin-bottom: 10px; border-radius: 5px; font-size: 12px'>";
                 switch ($_GET['error']) {
                     case 'username':
-                        echo "<p style='color:red;'>Username tidak ditemukan</p>";
+                        echo "Username tidak ditemukan</p>";
                         break;
                     case 'password':
-                        echo "<p style='color:red;'>Username atau Password salah</p>";
+                        echo "Username atau Password salah</p>";
                         break;
                     case 'invalid_request':
-                        echo "<p style='color:red;'>Permintaan tidak valid</p>";
+                        echo "Permintaan tidak valid</p>";
                         break;
                 }
+                echo "</div>";
             }
             ?>
             <form action="includes/login_process.php" method="POST">
                 <div class="form-group">
-                    <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
+                    <label for="username">Username</label>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
+                    <label for="password">Password</label>
                 </div>
                 <button type="submit" class="btn">Login</button>
             </form>

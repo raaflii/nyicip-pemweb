@@ -15,28 +15,33 @@
                     echo '<div class="error-message">' . $error . '</div>';
                 }
                 if (isset($_GET['error'])) {
-                    if ($_GET['error'] == 'username_exists') echo "Username sudah digunakan.";
-                    else if ($_GET['error'] == 'password_mismatch') echo "Password tidak cocok.";
-                    else if ($_GET['error'] == 'register_failed') echo "Registrasi gagal.";
-                    else if ($_GET['error'] == 'invalid_request') echo "Permintaan tidak valid.";
+                    echo "<div style='border: 1px solid red; background-color: #ffe6e6; color: red; padding: 10px; margin-bottom: 10px; border-radius: 5px; font-size: 12px'>";
+                    if ($_GET['error'] == 'username_exists') echo "<p style='color:red;'>Username sudah digunakan. Silakan pilih yang lain.</p>";
+                    else if ($_GET['error'] == 'password_mismatch') echo "<p style='color:red;'>Password dan konfirmasi tidak cocok.</p>";
+                    else if ($_GET['error'] == 'register_failed') echo "<p style='color:red;'>Registrasi gagal. Silahkan coba lagi.</p>";
+                    else if ($_GET['error'] == 'invalid_request') echo "<p style='color:red;'>Permintaan tidak valid.";
+                    echo "</div>";
                 }
             ?>
             <form action="includes/register_process.php" method="POST">
                 <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" required placeholder=" ">
+                    <label for="username" class="form-label">Username</label>
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email" class="form-label">Email</label>
                 </div>
+
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" required placeholder=" ">
+                    <label for="password" class="form-label">Password</label>
                 </div>
+
                 <div class="form-group">
-                    <label for="confirm_password">Konfirmasi Password:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <input type="password" id="confirm_password" name="confirm_password" required placeholder=" ">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
                 </div>
                 <button type="submit" class="btn">Daftar</button>
             </form>
