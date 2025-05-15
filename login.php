@@ -11,15 +11,15 @@
         <div class="form-container">
             <h2>Login</h2>
             <?php
-            if (isset($_GET['success'])) {
+            if (isset($_GET['register'])) {
                 echo '<div class="success-message">Registrasi berhasil! Silakan login.</div>';
             }
             if (isset($error)) {
-                echo '<div class="error-message">' . $error . '</div>';
+                echo '<div>' . $error . '</div>';
             }
 
             if (isset($_GET['error'])) {
-                echo "<div style='border: 1px solid red; background-color: #ffe6e6; color: red; padding: 10px; margin-bottom: 10px; border-radius: 5px; font-size: 12px'>";
+                echo "<div class=error-message>";
                 switch ($_GET['error']) {
                     case 'username':
                         echo "Username tidak ditemukan</p>";
@@ -33,6 +33,7 @@
                 }
                 echo "</div>";
             }
+            
             ?>
             <form action="includes/login_process.php" method="POST">
                 <div class="form-group">
