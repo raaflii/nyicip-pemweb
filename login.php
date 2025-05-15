@@ -14,9 +14,6 @@
             if (isset($_GET['register'])) {
                 echo '<div class="success-message">Registrasi berhasil! Silakan login.</div>';
             }
-            if (isset($error)) {
-                echo '<div>' . $error . '</div>';
-            }
 
             if (isset($_GET['error'])) {
                 echo "<div class=error-message>";
