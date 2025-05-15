@@ -15,11 +15,11 @@
                     echo '<div class="error-message">' . $error . '</div>';
                 }
                 if (isset($_GET['error'])) {
-                    echo "<div style='border: 1px solid red; background-color: #ffe6e6; color: red; padding: 10px; margin-bottom: 10px; border-radius: 5px; font-size: 12px'>";
+                    echo "<div class='error-message'>";
                     if ($_GET['error'] == 'username_exists') echo "<p style='color:red;'>Username sudah digunakan. Silakan pilih yang lain.</p>";
-                    else if ($_GET['error'] == 'password_mismatch') echo "<p style='color:red;'>Password dan konfirmasi tidak cocok.</p>";
-                    else if ($_GET['error'] == 'register_failed') echo "<p style='color:red;'>Registrasi gagal. Silahkan coba lagi.</p>";
-                    else if ($_GET['error'] == 'invalid_request') echo "<p style='color:red;'>Permintaan tidak valid.";
+                    else if ($_GET['error'] == 'password_mismatch') echo "<p>Password dan konfirmasi tidak cocok.</p>";
+                    else if ($_GET['error'] == 'register_failed') echo "<p>Registrasi gagal. Silahkan coba lagi.</p>";
+                    else if ($_GET['error'] == 'invalid_request') echo "<p>Permintaan tidak valid.";
                     echo "</div>";
                 }
             ?>
